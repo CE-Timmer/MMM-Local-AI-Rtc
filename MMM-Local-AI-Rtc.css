@@ -1,0 +1,96 @@
+.mmm-local-ai-rtc {
+    --bubble-size: 180px;
+    --fade-duration: 600ms;
+    --bubble-scale-x: 1;
+    --bubble-scale-y: 1;
+    --bubble-rotate: 0deg;
+    --radius-a: 46%;
+    --radius-b: 58%;
+    --radius-c: 42%;
+    --radius-d: 54%;
+    --bubble-glow: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+    transition:
+        opacity var(--fade-duration) ease,
+        transform var(--fade-duration) ease,
+        filter var(--fade-duration) ease;
+    filter: saturate(0.85);
+}
+
+.mmm-local-ai-rtc.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: saturate(1);
+}
+
+.mmm-local-ai-rtc__bubble {
+    position: relative;
+    width: var(--bubble-size);
+    height: var(--bubble-size);
+    transform: rotate(var(--bubble-rotate)) scaleX(var(--bubble-scale-x)) scaleY(var(--bubble-scale-y));
+    transform-origin: center;
+    transition:
+        opacity var(--fade-duration) ease,
+        transform 120ms linear,
+        filter 180ms ease;
+    opacity: 0;
+}
+
+.mmm-local-ai-rtc.is-active .mmm-local-ai-rtc__bubble {
+    opacity: 1;
+}
+
+.mmm-local-ai-rtc__core,
+.mmm-local-ai-rtc__ring,
+.mmm-local-ai-rtc__sheen {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-a) var(--radius-b) var(--radius-c) var(--radius-d);
+}
+
+.mmm-local-ai-rtc__core {
+    background:
+        radial-gradient(circle at 30% 28%, rgba(255, 245, 230, 0.95), rgba(255, 245, 230, 0.12) 18%, transparent 34%),
+        radial-gradient(circle at 68% 72%, rgba(244, 118, 74, 0.35), transparent 32%),
+        linear-gradient(160deg, rgba(255, 176, 117, 0.95), rgba(235, 95, 63, 0.92) 45%, rgba(117, 28, 77, 0.95));
+    box-shadow:
+        0 0 calc(var(--bubble-glow) * 1.8) rgba(255, 145, 92, 0.42),
+        0 0 var(--bubble-glow) rgba(255, 96, 96, 0.35),
+        inset 0 -12px 24px rgba(52, 6, 27, 0.32),
+        inset 0 10px 20px rgba(255, 255, 255, 0.16);
+}
+
+.mmm-local-ai-rtc__ring {
+    inset: -12px;
+    border: 1px solid rgba(255, 199, 164, 0.32);
+    opacity: 0.45;
+    filter: blur(0.5px);
+}
+
+.mmm-local-ai-rtc.is-speaking .mmm-local-ai-rtc__ring {
+    opacity: 0.88;
+}
+
+.mmm-local-ai-rtc__sheen {
+    background:
+        radial-gradient(circle at 35% 20%, rgba(255, 255, 255, 0.36), transparent 24%),
+        radial-gradient(circle at 62% 36%, rgba(255, 229, 197, 0.28), transparent 28%),
+        linear-gradient(200deg, rgba(255, 255, 255, 0.16), transparent 36%);
+    mix-blend-mode: screen;
+}
+
+.mmm-local-ai-rtc__label {
+    max-width: calc(var(--bubble-size) * 1.2);
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 225, 208, 0.92);
+    text-shadow: 0 0 12px rgba(255, 117, 85, 0.32);
+}

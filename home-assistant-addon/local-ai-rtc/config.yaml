@@ -1,0 +1,58 @@
+name: Local AI RTC Bridge
+version: "1.0.0"
+slug: local_ai_rtc_bridge
+description: Wake word, openWakeWord, and AI RTC bridge for MMM-Local-AI-Rtc
+url: https://github.com/your-name/MMM-Local-AI-Rtc
+startup: services
+boot: auto
+init: false
+host_network: true
+audio: true
+arch:
+  - amd64
+  - aarch64
+  - armv7
+options:
+  mirror_bridge_url: http://127.0.0.1:3210/api/events
+  mirror_bridge_token: ""
+  mirror_identifier: ""
+  idle_timeout: 30
+  rtc_base_url: https://ai-rtc.cetimmer-web.nl
+  rtc_token: ""
+  conversation_id: ""
+  stt_language: en
+  voiceprint_gate: false
+  voiceprint_check_status: false
+  voiceprint_delete_before_enroll: false
+  voiceprint_enroll_audio_path: ""
+  voiceprint_enroll_audio_url: ""
+  output_device: ""
+  play_remote_audio: false
+  wakeword_model: auto
+  wakeword_model_file: ""
+  wakeword_model_url: ""
+  wakeword_threshold: 0.5
+  wakeword_vad_threshold: 0.5
+  mic_device: ""
+schema:
+  mirror_bridge_url: str
+  mirror_bridge_token: password?
+  mirror_identifier: str?
+  idle_timeout: float(5,)
+  rtc_base_url: url
+  rtc_token: password
+  conversation_id: str?
+  stt_language: str?
+  voiceprint_gate: bool
+  voiceprint_check_status: bool
+  voiceprint_delete_before_enroll: bool
+  voiceprint_enroll_audio_path: str?
+  voiceprint_enroll_audio_url: url?
+  output_device: str?
+  play_remote_audio: bool
+  wakeword_model: str
+  wakeword_model_file: str?
+  wakeword_model_url: url?
+  wakeword_threshold: float(0,1)
+  wakeword_vad_threshold: float(0,1)
+  mic_device: str?

@@ -1,0 +1,17 @@
+{
+  "name": "mmm-local-ai-rtc",
+  "version": "1.0.0",
+  "description": "MagicMirror module that shows a reactive AI RTC bubble.",
+  "main": "MMM-Local-AI-Rtc.js",
+  "keywords": [
+    "MagicMirror",
+    "AI",
+    "RTC",
+    "voice"
+  ],
+  "author": "chris",
+  "license": "MIT",
+  "scripts": {
+    "start-bridge-demo": "python scripts/local_ai_rtc_bridge.py"
+  }
+}
